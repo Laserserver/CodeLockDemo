@@ -1,0 +1,246 @@
+﻿<Window x:Class="CodeLockDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeLockDemo"
+        mc:Ignorable="d"
+        Title="Кодовый замок" Height="800" Width="1000" FontFamily="Comic Sans MS">
+    <Grid Background="#FFE6A8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock TextAlignment="Center" Margin="5,5,5,5" FontSize="18" FontWeight="Bold" FontFamily="Comic Sans MS" Grid.Column="0" Grid.Row="0">Наружная сторона</TextBlock>
+        <TextBlock TextAlignment="Center" Margin="5,5,5,5" FontSize="18" FontWeight="Bold" FontFamily="Comic Sans MS" Grid.Column="1" Grid.Row="0">Внутренняя сторона</TextBlock>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Chocolate" BorderThickness="2"/>
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Chocolate" BorderThickness="2"/>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2"/>
+
+        <TextBlock TextAlignment="Center" Margin="5,5,5,5" FontSize="18" FontWeight="Bold" FontFamily="Comic Sans MS" Grid.Column="0" Grid.Row="2">Кодовый замок</TextBlock>
+        <TextBlock TextAlignment="Center" Margin="5,5,5,5" FontSize="18" FontWeight="Bold" FontFamily="Comic Sans MS" Grid.Column="1" Grid.Row="2">Затворный механизм</TextBlock>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Chocolate" BorderThickness="2"/>
+        <Border Grid.Row="3" Grid.Column="0" BorderBrush="Chocolate" BorderThickness="2"/>
+        <Border Grid.Row="3" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2"/>
+
+        <Grid Row="1" Column="0" Margin="30" ShowGridLines="False" Background="Gray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderBrush="DimGray" BorderThickness="4"/>
+
+            <Grid Column="0" Row="0" ColumnSpan="3">
+                <TextBlock FontSize="18" TextAlignment="Center" Margin="10" Background="Beige" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10">ООО "Рога и копыта"</TextBlock>
+            </Grid>
+
+            <Grid Column="1" Row="1" RowSpan="2" Background="#202030"/>
+
+            <Grid Name="Door" Column="1" Row="1" Background="#79551D" RowSpan="2" ShowGridLines="False" Visibility="Visible">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" BorderBrush="#33220A" BorderThickness="4"/>
+
+                <Grid Name="DoorCodelock" Margin="10" Background="Gray" Column="1" Row="1">
+                    <Border Grid.Row="0" Grid.Column="0" BorderBrush="#444444" BorderThickness="2"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="60*"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="90*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Name="DoorDisplay" Column="1" Row="1" Background="#041304">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Name="DoorDigitFirst" Foreground="Green"  HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" FontFamily="Calibri">*</TextBlock>
+                            <TextBlock Grid.Column="1" Name="DoorDigitSecond" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" FontFamily="Calibri">*</TextBlock>
+                            <TextBlock Grid.Column="2" Name="DoorDigitThird" Foreground="Green"  HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" FontFamily="Calibri">*</TextBlock>
+                            <TextBlock Grid.Column="3" Name="DoorDigitFourth" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" FontFamily="Calibri">*</TextBlock>
+                        </Grid>
+
+                        <Grid Row="3" Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65*"/>
+                                <ColumnDefinition Width="35*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="22*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="22*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="22*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="22*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="3*"/>
+                                </Grid.RowDefinitions>
+
+                                <Button Grid.Row="0" Grid.Column="0" Name="DoorButton1" Background="#555555" Foreground="White" FontSize="5" Content="1"/>
+                                <Button Grid.Row="0" Grid.Column="2" Name="DoorButton2" Background="#555555" Foreground="White" FontSize="5" Content="2"/>
+                                <Button Grid.Row="0" Grid.Column="4" Name="DoorButton3" Background="#555555" Foreground="White" FontSize="5" Content="3"/>
+                                <Button Grid.Row="2" Grid.Column="0" Name="DoorButton4" Background="#555555" Foreground="White" FontSize="5" Content="4"/>
+                                <Button Grid.Row="2" Grid.Column="2" Name="DoorButton5" Background="#555555" Foreground="White" FontSize="5" Content="5"/>
+                                <Button Grid.Row="2" Grid.Column="4" Name="DoorButton6" Background="#555555" Foreground="White" FontSize="5" Content="6"/>
+                                <Button Grid.Row="4" Grid.Column="0" Name="DoorButton7" Background="#555555" Foreground="White" FontSize="5" Content="7"/>
+                                <Button Grid.Row="4" Grid.Column="2" Name="DoorButton8" Background="#555555" Foreground="White" FontSize="5" Content="8"/>
+                                <Button Grid.Row="4" Grid.Column="4" Name="DoorButton9" Background="#555555" Foreground="White" FontSize="5" Content="9"/>
+                                <Button Grid.Row="2" Grid.Column="6" Name="DoorButton0" Background="#555555" Foreground="White" FontSize="5" Content="0"/>
+
+
+                            </Grid>
+
+                            <Grid Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="45*"/>
+                                    <RowDefinition Height="10*"/>
+                                    <RowDefinition Height="45*"/>
+                                </Grid.RowDefinitions>
+
+                                <Button Grid.Row="0" Name="DoorButtonCall" Background="#555555" Foreground="White" FontSize="5" Content="Вызов"/>
+                                <Button Grid.Row="2" Name="DoorButtonControl" Background="#555555" Foreground="White" FontSize="5" Content="Контроль"/>
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+
+
+        </Grid>
+
+        <Grid Row="3" Column="0">
+            <Grid Name="Codelock" Margin="40" Background="Gray">
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="#444444" BorderThickness="3"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="90*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Name="Display" Column="1" Row="1" Background="#041304">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Name="DigitFirst" Foreground="Green"  HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="70" FontFamily="Calibri">*</TextBlock>
+                        <TextBlock Grid.Column="1" Name="DigitSecond" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="70" FontFamily="Calibri">*</TextBlock>
+                        <TextBlock Grid.Column="2" Name="DigitThird" Foreground="Green"  HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="70" FontFamily="Calibri">*</TextBlock>
+                        <TextBlock Grid.Column="3" Name="DigitFourth" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="70" FontFamily="Calibri">*</TextBlock>
+                    </Grid>
+
+                    <Grid Row="3" Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="65*"/>
+                            <ColumnDefinition Width="35*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="22*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="22*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="22*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="22*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="0" Grid.Column="0" Name="Button1" Background="#555555" Foreground="White" FontSize="30" Content="1"/>
+                            <Button Grid.Row="0" Grid.Column="2" Name="Button2" Background="#555555" Foreground="White" FontSize="30" Content="2"/>
+                            <Button Grid.Row="0" Grid.Column="4" Name="Button3" Background="#555555" Foreground="White" FontSize="30" Content="3"/>
+                            <Button Grid.Row="2" Grid.Column="0" Name="Button4" Background="#555555" Foreground="White" FontSize="30" Content="4"/>
+                            <Button Grid.Row="2" Grid.Column="2" Name="Button5" Background="#555555" Foreground="White" FontSize="30" Content="5"/>
+                            <Button Grid.Row="2" Grid.Column="4" Name="Button6" Background="#555555" Foreground="White" FontSize="30" Content="6"/>
+                            <Button Grid.Row="4" Grid.Column="0" Name="Button7" Background="#555555" Foreground="White" FontSize="30" Content="7"/>
+                            <Button Grid.Row="4" Grid.Column="2" Name="Button8" Background="#555555" Foreground="White" FontSize="30" Content="8"/>
+                            <Button Grid.Row="4" Grid.Column="4" Name="Button9" Background="#555555" Foreground="White" FontSize="30" Content="9"/>
+                            <Button Grid.Row="2" Grid.Column="6" Name="Button0" Background="#555555" Foreground="White" FontSize="30" Content="0"/>
+                            
+
+                        </Grid>
+
+                        <Grid Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="45*"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="0" Name="ButtonCall" Background="#555555" Foreground="White" FontSize="25" Content="Вызов"/>
+                            <Button Grid.Row="2" Name="ButtonControl" Background="#555555" Foreground="White" FontSize="25" Content="Контроль"/>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Row="1" Column="1">
+            
+        </Grid>
+
+        <Grid Row="3" Column="1">
+            
+        </Grid>
+    </Grid>
+</Window>
